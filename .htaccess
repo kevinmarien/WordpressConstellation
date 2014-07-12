@@ -1,0 +1,4 @@
+<Files wp-cron.php>
+allow from all
+Satisfy Any
+</Files>
