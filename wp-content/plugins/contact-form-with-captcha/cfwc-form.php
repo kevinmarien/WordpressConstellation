@@ -111,7 +111,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
 <div id="cfwc_contactform">
 <!-- Contact form with Captcha - For more details visit http://www.teqlog.com/wordpress-contact-form-with-captcha-plugin.html -->
 <form action="" method="POST" name="ContactForm" onsubmit="return check();">
-
+<center>
 <table>
        <tbody>
          <tr>
@@ -123,7 +123,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
                  else
                  {
-                     echo "Full Name:"; 
+                     echo "Nom:"; 
                  }
              ?>
              <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
@@ -156,7 +156,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
                  }
                  else
                  {
-                     echo "Subject:"; 
+                     echo "Sujet:"; 
                  }
              ?>
              <?php if ($cfwc_form_theme == "stacked") {echo "<br>";} else {echo "</td><td>";} ?>
@@ -232,7 +232,7 @@ if(document.getElementById("recaptcha_response_field").value=="")
          </tr>
      </tbody>
 </table>
-
+</center>
 </form>
 <!-- Contact form with Captcha - For more details visit http://www.teqlog.com/wordpress-contact-form-with-captcha-plugin.html -->
 </div>
