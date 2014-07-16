@@ -99,7 +99,7 @@ if ( !class_exists("Association") )
             // Récupère le prochain ID
             $get_next_id = mysql_query("SHOW TABLE STATUS LIKE '".$wpdb->prefix."options'");
             $row = mysql_fetch_array($get_next_id);
-            $nextId = $row['Auto_increment'];
+            $nextId = hash('crc32', 'membre_'.$_POST['option_value']);
 
             // add_option est la fonction WP permettant d'ajouter des données dans la table wp_option
             if(add_option('membre_'.$nextId, $_POST['option_value'])){

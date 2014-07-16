@@ -4,7 +4,7 @@ Plugin Name: Constellation
 Description: Liste des constellations
 Version: 0.1
 License: GPL
-Author: Kevin Marien, Jonathan Esedji, Yassir Builler
+Author: Kevin Marien, Jonathan Esedji
 */
 if ( !class_exists("Constellation") )
 {
