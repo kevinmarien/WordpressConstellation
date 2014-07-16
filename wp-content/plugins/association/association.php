@@ -91,7 +91,7 @@ if ( !class_exists("Association") )
         <hr>
         <h2>Ajouter  un nouveau membre</h2>
         <form method="POST" id="addasso">
-            <label for="option_value">Membre : </label><input name="option_value" id="option_value" type="text">
+            <label for="option_value">Membre : </label><input name="option_value" id="option_value" type="text" required>
             <input type="submit" name="submit_asso">
         </form>
         <?php

@@ -7,9 +7,11 @@ Satisfy Any
 RewriteEngine On
 RewriteBase /wordpressConstellation/
 RewriteRule ^index\.php$ - [L]
+RewriteRule ^admin/?$ /wordpressConstellation/wp-login.php [QSA,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /wordpressConstellation/index.php [L]
 </IfModule>
 
 # END WordPress
+
