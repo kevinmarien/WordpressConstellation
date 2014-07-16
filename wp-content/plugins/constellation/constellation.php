@@ -452,7 +452,7 @@ if ( !class_exists("Constellation") )
     add_action( 'my_task_hook', 'my_task_function' );
 
     function my_task_function() {
-        $url = plugin_dir_path( __FILE__ ).'cron.txt';
+        /*$url = plugin_dir_path( __FILE__ ).'cron.txt';
         file_put_contents($url, "Aucune constellation", FILE_TEXT);
         /*
         if(get_constellations('all') != 'Aucune constellation'){
@@ -489,6 +489,39 @@ if ( !class_exists("Constellation") )
             file_put_contents($url, file_put_contents($url)."Aucune constellation. \r\n");
         }
         */
+
+        add_action( 'wp', 'esgi_grade_cron' );
+/**
+ * On an early action hook, check if the hook is scheduled - if not, schedule it.
+ */
+function esgi_grade_cron() {
+    if ( ! wp_next_scheduled( 'esgi_grade_cron_backup' ) ) {
+        wp_schedule_event( time(), 'hourly', 'esgi_grade_cron_backup');
+    }
+}
+
+
+add_action( 'esgi_grade_cron_backup', 'esgi_grade_backup' );
+/**
+ * On the scheduled action hook, run a function.
+ */
+function esgi_grade_backup() {
+
+    $file = "liste_grade.txt";
+    $handle = fopen($file, 'w+');
+
+    include_once('grade.php');
+
+    global $wpdb;
+
+    $grade = new Grade($wpdb);
+
+    $grades = $grade->fetchAll();
+
+    fwrite($handle, print_r($grades, TRUE));
+
+    fclose($handle);
+}
     }
 }
 ?>
